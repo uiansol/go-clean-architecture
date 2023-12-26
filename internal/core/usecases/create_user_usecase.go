@@ -24,7 +24,7 @@ func NewCreateUserUseCase(userRepository repositories.IUserRepository) CreateUse
 	}
 }
 
-func (u *CreateUserUseCase) CreateUser(createUserInput CreateUserInput) (CreateUserOutput, error) {
+func (u *CreateUserUseCase) Execute(createUserInput CreateUserInput) (CreateUserOutput, error) {
 	user, err := entities.NewUser(createUserInput.Name, createUserInput.Email)
 	if err != nil {
 		return CreateUserOutput{}, err
