@@ -1,12 +1,12 @@
 package usecases
 
 import (
-	"github.com/uiansol/go-clean-architecture/internal/core/entities"
-	"github.com/uiansol/go-clean-architecture/internal/core/repositories"
+	"github.com/uiansol/go-clean-architecture/internal/domain/adapters"
+	"github.com/uiansol/go-clean-architecture/internal/domain/entities"
 )
 
 type CreateUserUseCase struct {
-	userRepository repositories.IUserRepository
+	userRepository adapters.IUserRepository
 }
 
 type CreateUserInput struct {
@@ -18,7 +18,7 @@ type CreateUserOutput struct {
 	UserID string
 }
 
-func NewCreateUserUseCase(userRepository repositories.IUserRepository) CreateUserUseCase {
+func NewCreateUserUseCase(userRepository adapters.IUserRepository) CreateUserUseCase {
 	return CreateUserUseCase{
 		userRepository: userRepository,
 	}
