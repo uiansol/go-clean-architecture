@@ -9,7 +9,7 @@ import (
 func configHandlers() *AppHandlers {
 	userRepository := mongodb.NewUserRepositoryMongo()
 	userCreateUseCase := usecases.NewUserCreateUseCase(userRepository)
-	userCreateHandler := handlers.NewUserCreateHandler(userCreateUseCase)
+	userCreateHandler := handlers.NewUserCreateHandler(&userCreateUseCase)
 
 	return &AppHandlers{
 		userCreateHandler: userCreateHandler,

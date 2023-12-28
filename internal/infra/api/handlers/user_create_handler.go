@@ -11,10 +11,10 @@ import (
 )
 
 type UserCreateHandler struct {
-	userCreateUseCase usecases.UserCreateUseCase
+	userCreateUseCase usecases.IUserCreateUseCase
 }
 
-func NewUserCreateHandler(userCreateUseCase usecases.UserCreateUseCase) *UserCreateHandler {
+func NewUserCreateHandler(userCreateUseCase usecases.IUserCreateUseCase) *UserCreateHandler {
 	return &UserCreateHandler{
 		userCreateUseCase: userCreateUseCase,
 	}
