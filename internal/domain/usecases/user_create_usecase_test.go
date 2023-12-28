@@ -6,11 +6,11 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-	"github.com/uiansol/go-clean-architecture/mocks"
+	"github.com/uiansol/go-clean-architecture/internal/infra/mongodb"
 )
 
 func TestNewCreateUserUseCase(t *testing.T) {
-	userRepositoryMock := mocks.NewIUserRepository(t)
+	userRepositoryMock := mongodb.NewIUserRepository(t)
 
 	t.Run("should return a create user use case", func(t *testing.T) {
 		createUserUseCase := NewUserCreateUseCase(userRepositoryMock)
@@ -26,7 +26,7 @@ func TestExecute(t *testing.T) {
 	}
 
 	t.Run("should create the user and return error nil", func(t *testing.T) {
-		userRepositoryMock := mocks.NewIUserRepository(t)
+		userRepositoryMock := mongodb.NewIUserRepository(t)
 		createUserUseCase := NewUserCreateUseCase(userRepositoryMock)
 
 		userRepositoryMock.On("Save", mock.Anything).Return("123", nil)
@@ -38,7 +38,7 @@ func TestExecute(t *testing.T) {
 	})
 
 	t.Run("should return error with email is invalid", func(t *testing.T) {
-		userRepositoryMock := mocks.NewIUserRepository(t)
+		userRepositoryMock := mongodb.NewIUserRepository(t)
 		createUserUseCase := NewUserCreateUseCase(userRepositoryMock)
 
 		inputEmailInvalid := UserCreateInput{
@@ -53,7 +53,7 @@ func TestExecute(t *testing.T) {
 	})
 
 	t.Run("should return error when couldn't save", func(t *testing.T) {
-		userRepositoryMock := mocks.NewIUserRepository(t)
+		userRepositoryMock := mongodb.NewIUserRepository(t)
 		createUserUseCase := NewUserCreateUseCase(userRepositoryMock)
 
 		userRepositoryMock.On("Save", mock.Anything).Return("", errors.New("test error"))

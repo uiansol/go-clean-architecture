@@ -5,6 +5,10 @@ import (
 	"github.com/uiansol/go-clean-architecture/internal/domain/entities"
 )
 
+type IUserCreateUseCase interface {
+	Execute(userCreateInput UserCreateInput) (UserCreateOutput, error)
+}
+
 type UserCreateUseCase struct {
 	userRepository adapters.IUserRepository
 }
