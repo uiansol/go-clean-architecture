@@ -13,4 +13,4 @@ Read more about [go repo organization](https://github.com/golang-standards/proje
 
 Read more about [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
 
-For a detailed explanation of the architecture, how it relates to SOLID, and common alternatives, you can read [this post]().
+For a detailed explanation of the architecture, how it relates to SOLID, and common alternatives, you can read [this post](https://uian-sol.ghost.io/how-to-implement-clean-architecture-with-golang/).
